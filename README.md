@@ -6,7 +6,8 @@ Demo repo for the Nuxt CLI `module skills` feature, following the same â€œcopyâ€
 
 ```bash
 PROJECT=/tmp/MiniBank
-NUXI_PKG_PR_URL="https://pkg.pr.new/nuxi@1201?cachebust=1"
+CACHEBUST="$(date +%s)"
+NUXI_PKG_PR_URL="https://pkg.pr.new/nuxi@1201?cachebust=${CACHEBUST}"
 BETTER_AUTH_PKG_PR_URL="https://pkg.pr.new/onmax/nuxt-better-auth/@onmax/nuxt-better-auth@89"
 
 rm -rf "$PROJECT"
