@@ -7,7 +7,11 @@ Demo repo for the Nuxt CLI `module skills` feature, following the same â€œcopyâ€
 ```bash
 git clone https://github.com/onmax/nuxt-cli-skills-demo.git
 cd nuxt-cli-skills-demo
-NUXI_PKG_PR_URL="<paste CLI pkg.pr.new URL>" ./demo.sh
+./demo.sh
 ```
 
-Replace `<paste CLI pkg.pr.new URL>` with the link from the Nuxt CLI PR CI logs (pkg.pr.new output).
+Optional: override the default CLI build with:
+
+```bash
+NUXI_PKG_PR_URL="<paste CLI pkg.pr.new URL>" ./demo.sh
+```
