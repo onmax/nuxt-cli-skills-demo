@@ -5,13 +5,31 @@ Demo repo for the Nuxt CLI `module skills` feature, following the same â€œcopyâ€
 ## Demo
 
 ```bash
-git clone https://github.com/onmax/nuxt-cli-skills-demo.git
-cd nuxt-cli-skills-demo
-./demo.sh
-```
+PROJECT=/tmp/MiniBank
+NUXI_PKG_PR_URL="https://pkg.pr.new/nuxi@1201"
+BETTER_AUTH_PKG_PR_URL="https://pkg.pr.new/onmax/nuxt-better-auth/@onmax/nuxt-better-auth@89"
 
-Optional: override the default CLI build with:
+rm -rf "$PROJECT"
 
-```bash
-NUXI_PKG_PR_URL="<paste CLI pkg.pr.new URL>" ./demo.sh
+pnpm dlx nuxi@latest init "$PROJECT" \
+  --template minimal \
+  --packageManager pnpm \
+  --gitInit false \
+  --install=false \
+  --no-modules
+
+cd "$PROJECT"
+
+pnpm install
+
+pnpm add -D "$NUXI_PKG_PR_URL"
+
+pnpm nuxi module add @nuxt/ui
+pnpm nuxi module add @nuxt/icon
+
+pnpm add "$BETTER_AUTH_PKG_PR_URL"
+pnpm nuxi module add @onmax/nuxt-better-auth --skipInstall
+
+pnpm nuxi module skills
+pnpm nuxi module skills --list || true
 ```
